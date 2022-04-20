@@ -18,7 +18,7 @@ public class PictureController {
 		this.pictureService = pictureService;
 	}
 
-	//testowy zwrot obrazu - do implementacji zwrot wszystkich obiektów w bazie
+	//testowy zwrot obrazu - do implementacji zwrot wszystkich obiektów w bazie i interfejs CRUD
 	@GetMapping("/getAllPictures")
 	public List<Picture> getAllPictures(){
 		return pictureService.getAllPictures();
