@@ -15,8 +15,11 @@ public class PictureService {
         this.pictureRepository = pictureRepository;
     }
 
-    //tesowy zwrot obiektu
+    //zwracanie wszystkich obrazkow w DB
     public List<Picture> getAllPictures(){
                return pictureRepository.findAll();
     }
+
+    //dodawanie nowego obrazu do DB
+    public void addPicture(Picture picture){pictureRepository.save(picture);}
 }

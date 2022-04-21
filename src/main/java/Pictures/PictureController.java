@@ -3,6 +3,8 @@ package Pictures;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,11 +20,16 @@ public class PictureController {
 		this.pictureService = pictureService;
 	}
 
-	//testowy zwrot obrazu - do implementacji zwrot wszystkich obiektów w bazie i interfejs CRUD
-	@GetMapping("/getAllPictures")
+	//wyswietlanie wszystkiego w DB
+	@GetMapping(path="/getAllPictures")
 	public List<Picture> getAllPictures(){
 		return pictureService.getAllPictures();
 	}
+
+	//dodawanie nowego obrazka
+	@PostMapping(path="/addPicture")
+	public void addPicture(@RequestBody Picture picture){pictureService.addPicture(picture);}
+
 
 
 

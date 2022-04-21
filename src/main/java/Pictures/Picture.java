@@ -30,6 +30,13 @@ public class Picture {
         this.encodedImage = encodedImage;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -57,8 +64,9 @@ public class Picture {
 
     @Override
     public String toString() {
-        return "Image{" +
-                "name='" + name + '\'' +
+        return "Picture{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", encodedImage='" + encodedImage + '\'' +
                 '}';
