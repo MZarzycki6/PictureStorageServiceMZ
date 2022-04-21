@@ -30,6 +30,9 @@ public class PictureController {
 	@PostMapping(path="/addPicture")
 	public void addPicture(@RequestBody Picture picture){pictureService.addPicture(picture);}
 
+	//pobieranie obrazu z DB po id
+	@GetMapping(path="/getPicture")
+	public Picture getPicture(@RequestBody long id){return pictureService.getPicture(id);}
 
 
 
