@@ -2,10 +2,7 @@ package Pictures;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class PictureController {
 
 	//pobieranie obrazu z DB po id
 	@GetMapping(path="/getPicture")
-	public Picture getPicture(@RequestBody long id){return pictureService.getPicture(id);}
+	public Picture getPicture(@RequestParam long id){return pictureService.getPicture(id);}
 
 
 

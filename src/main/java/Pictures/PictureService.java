@@ -26,7 +26,7 @@ public class PictureService {
 
     //pobieranie wybranego obrazu z DB po id
     public Picture getPicture(@RequestBody long id){
-         return pictureRepository.getById(id);
+         return pictureRepository.findById(id).get();
     }
 
 }
