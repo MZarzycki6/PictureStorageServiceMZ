@@ -1,4 +1,4 @@
-package Pictures;
+package Api;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,5 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface PictureRepository extends JpaRepository<Picture,Long> {
-
+    @Query("SELECT p FROM Picture p WHERE p.id = ?1")
+    Optional<Picture> findPictureById(long id);
 }

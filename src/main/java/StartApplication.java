@@ -1,6 +1,5 @@
-import Pictures.PictureController;
+import Api.PictureController;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 public class StartApplication {

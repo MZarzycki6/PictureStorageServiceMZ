@@ -1,4 +1,4 @@
-package Pictures;
+package Api;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-//klasa testowa służąca do wgrywania przykladowych obrazków na DB przy inicjalizacji
+/*klasa testowa służąca do wgrywania przykladowych obrazków na DB przy inicjalizacji */
 @Configuration
 public class PictureConfig {
     @Bean

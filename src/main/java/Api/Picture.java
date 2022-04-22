@@ -1,8 +1,8 @@
-package Pictures;
+package Api;
 
 
 import javax.persistence.*;
-
+/* Standardowa definicja obiektu obrazka*/
 @Entity
 @Table
 public class Picture {
