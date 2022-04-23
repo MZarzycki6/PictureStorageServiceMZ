@@ -2,6 +2,7 @@ package Api;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -24,7 +25,8 @@ public class PictureService {
     //dodawanie nowego obrazu do DB
     public void addPicture(Picture picture){pictureRepository.save(picture);}
 
-    //pobieranie wybranego obrazu z DB po id - z przykladowa domyslna obsluga wyjatkow
+    //pobieranie wybranego obrazu z DB po id - z przykladowa domyslna obsluga wyjatkow i cache
+    @Cacheable("pictures")
     public Picture getPicture(long id) throws InvalidAttributeValueException {
         Optional<Picture> PicturebyId= pictureRepository.findPictureById(id);
         if (!PicturebyId.isPresent())throw new InvalidAttributeValueException("brak obrazka z podanym id");
