@@ -19,6 +19,8 @@ public class PictureService {
     @Autowired
     public PictureService(PictureRepository pictureRepository) {this.pictureRepository = pictureRepository; }
 
+
+
     //zwracanie wszystkich obrazkow w DB
     public List<Picture> getAllPictures(){return pictureRepository.findAll(); }
 
