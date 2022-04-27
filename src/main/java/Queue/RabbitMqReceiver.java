@@ -10,6 +10,9 @@ import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.naming.directory.InvalidAttributeValueException;
+import java.io.IOException;
+
 @Component
 public class RabbitMqReceiver implements RabbitListenerConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(RabbitMqReceiver.class);
@@ -25,8 +28,16 @@ public class RabbitMqReceiver implements RabbitListenerConfigurer {
     }
 
     @RabbitListener(queues = "${spring.rabbitmq.queue}")
-    public void receivedMessage(Picture picture) {
+    public void addPicture(Picture picture) throws IOException {
         pictureService.addPicture(picture);
         logger.info("operacja dodawania obrazu wykonana prawidlowo");
     }
+
+    @RabbitListener(queues = "${spring.rabbitmq.queue}")
+    public void deletePicture(long id){
+        pictureService.deletePicture(id);
+        logger.info("operacja usuwania obrazu wykonana prawidlowo");
+    }
+
 }
+

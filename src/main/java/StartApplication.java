@@ -24,9 +24,7 @@ public class StartApplication {
     String username;
     @Value("${spring.rabbitmq.password}")
     String password;
-    public static void main(String[] args){
-        SpringApplication.run(PictureController.class, args);
-    }
+    public static void main(String[] args)  { SpringApplication.run(PictureController.class, args); }
     @Bean
     CachingConnectionFactory connectionFactory() {
         CachingConnectionFactory cachingConnectionFactory = new CachingConnectionFactory(host);

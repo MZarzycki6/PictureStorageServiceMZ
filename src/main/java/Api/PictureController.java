@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.directory.InvalidAttributeValueException;
 import java.util.List;
 
-/* controller dla zapytań REST */
 @SpringBootApplication
 @ComponentScan({"Api", "Queue","Tools"})
 @RestController
 public class PictureController {
 
 	private final PictureService pictureService;
-	private RabbitMqSender rabbitMqSender;
+	private final RabbitMqSender rabbitMqSender;
 
 	@Autowired
 	public PictureController(PictureService pictureService, RabbitMqSender rabbitMqSender) {
@@ -49,7 +48,7 @@ public class PictureController {
 	//usuwanie obrazu z DB po id
 	@DeleteMapping(path="/deletePicture")
 	public ResponseEntity deletePicture(@RequestParam long id){
-		pictureService.deletePicture(id);
+		rabbitMqSender.delete(id);
 		return ResponseEntity.ok().body("Operacja wykonana prawidłowo - usunięto obraz o id "+id);
 	}
 

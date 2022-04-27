@@ -20,9 +20,11 @@ public class Picture {
     private Long id;
     private String name;
     private String description;
+    @Lob
+    @Column
     private String encodedImage;
 
-    public Picture (){};
+    public Picture (){}
     public Picture(Long id, String name, String description, String encodedImage) {
         this.id = id;
         this.name = name;

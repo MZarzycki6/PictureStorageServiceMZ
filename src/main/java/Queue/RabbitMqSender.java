@@ -17,7 +17,11 @@ public class RabbitMqSender {
     private String exchange;
     @Value("${spring.rabbitmq.routingkey}")
     private String routingkey;
-    public void send(Picture picture){
+   public void send(Picture picture){
         rabbitTemplate.convertAndSend(exchange,routingkey, picture);
     }
+    public void delete(long id){
+       rabbitTemplate.convertAndSend(exchange,routingkey,id);
+    }
+
 }
