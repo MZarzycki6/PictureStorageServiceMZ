@@ -47,6 +47,7 @@ public class PictureService {
         newPicture.setEncodedImage(encodedThumbnail);
         pictureRepository.save(newPicture);}
 
+
     //pobieranie wybranego obrazu z DB po id - z przykladowa domyslna obsluga wyjatkow
     @Cacheable("pictures")
     @Transactional
