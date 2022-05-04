@@ -44,6 +44,7 @@ String description - opis obrazka
 - zintegrowano bazę PostgreSQL z projektem
 - dodano system kolejek RabbitMQ dla zapisywania nowego obrazka i usuwania obrazka
 - dodano cache Hazelcast dla zapytania pobrania konkretnego obrazka po id i przetestowano poprzez pomiar czasów odpowiedzi dla dwukrotnie powtórzonego tego samego zapytania
+- dodano Keycloak jako dostawcę zabezpieczeń z wyszczególnieniem 2 typów użytkowników, user i admin
 
 ## TODO: 
 - Metoda i endpoint REST do modyfikacji wybranego obrazka z wykorzystaniem zaptania UPDATE w DB - tutaj nie sądzę aby były jakieś problemy
