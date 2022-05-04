@@ -51,7 +51,6 @@ String description - opis obrazka
 - Podział aplikacji na formę architektury mikroserwisowej
 - Uzupełnienie testów
 - Uzupełenienie wykorzystania systemu kolejek i cache dla wszystkich zapytań
-- Zespolenie wszystkich plików yml i .properties w jeden
 - Mozna by na koniec wystawic demonstracyjnie aplikację na platformie np. Heroku
 
 ## Problem ciągłego zwracania błędu 401 Unauthorized przy zastosowaniu Keycloak (Zamknięty)
