@@ -68,5 +68,5 @@ i poprzez wykorzystanie tej samej klasy z dodatkową adnotacja @EnableGlobalMeth
 
 Zadna z tych prób nie okazała sie być do tej pory skuteczna. 
 
-
+UPDATE, 04.05.2022: Błąd okazał się być błędem banalnym, bowiem nie uwzględniłem "Security" w adnotacji @ComponentScan. Po dodaniu wyżej wymienionego elementu system zwrócił szereg błędów które próbuję do końca dnia dzisiejszego rozwiązać.
 
