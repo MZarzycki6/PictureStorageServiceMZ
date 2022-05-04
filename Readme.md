@@ -47,7 +47,6 @@ String description - opis obrazka
 
 ## TODO: 
 - Metoda i endpoint REST do modyfikacji wybranego obrazka z wykorzystaniem zaptania UPDATE w DB - tutaj nie sądzę aby były jakieś problemy
-- autoryzacja użytkowników z wykorzystaniem Keycloak i podziałem na user/admin - wykryto błąd polegający na niepoprawnej weryfikacji tokenów i w konsekwencji ciągłego zwracania 401.Unauthorized. Opis prób rozwiązania błędu znajduje się poniżej.
 - Metoda i endpoint REST do generowania czasowych linków dostępu do danych dla nieautoryzowanych użytkowników - do zrobienia po zaimplementowaniu autoryzacji - nalezałoby wówczas dodać do obiektu obrazka pole, które przechowywałoby dane nt. jego właściciela
 - Podział aplikacji na formę architektury mikroserwisowej
 - Uzupełnienie testów
@@ -55,7 +54,7 @@ String description - opis obrazka
 - Zespolenie wszystkich plików yml i .properties w jeden
 - Mozna by na koniec wystawic demonstracyjnie aplikację na platformie np. Heroku
 
-## Problem ciągłego zwracania błędu 401 Unauthorized przy zastosowaniu Keycloak
+## Problem ciągłego zwracania błędu 401 Unauthorized przy zastosowaniu Keycloak (Zamknięty)
 
 Problem polega na tym, że niezależnie od zastosowanej metody implementacji, ciągle, na każde zapytanie, nawet takie które nie powinno być zabezpieczone, zwracany jest błąd 401. Należy przy tym zauważyć, że tokeny są generowane prawidłowo, tzn po podaniu w Postmanie w "authorization" poprawnych danych uwierzytelniających zarówno dla użytkownika jak i admina, uzyskiwany jest poprawny (sprawdzane przez jwt.io) token. Problem leży najprawdopodobniej po stronie konfiguracji bezpieczeństwa w aplikacji (Security.SecurityConfig w Keycloak branch), która nie autoryzuje zapytań zawierających poprawne tokeny. Znaleziono problemy o podobnej tematyce pod adresami: https://keycloak.discourse.group/t/always-receiving-error-401-from-web-app-using-keycloak/3922/6 oraz https://stackoverflow.com/questions/46882610/keycloak-api-always-returns-401, jednak nie udało się uzyskać na ich podstawie rozwiązania. Próbowano wykorzystać i modyfikować 3 znalezione rozwiązania: poprzez uwzględnienie zabezpieczeń w .properties file np. 
 
@@ -69,4 +68,6 @@ i poprzez wykorzystanie tej samej klasy z dodatkową adnotacja @EnableGlobalMeth
 Zadna z tych prób nie okazała sie być do tej pory skuteczna. 
 
 UPDATE, 04.05.2022: Błąd okazał się być błędem banalnym, bowiem nie uwzględniłem "Security" w adnotacji @ComponentScan. Po dodaniu wyżej wymienionego elementu system zwrócił szereg błędów które próbuję do końca dnia dzisiejszego rozwiązać.
+
+UPDATE 04.05.2022 15:00 #2: Wszelkie błędy dotyczące Keycloak zostały rozwiązane, a wszystkie endpointy zabezpieczone z wykorzystaniem przykładowego usera i przykłądowego admina. Problem zamknięty, niepotrzebnie zajął mi kilka dni. Następnym krokiem powinno być dodanie pola z przypisanym użytkownikiem do obiektu obrazka, aby móc weryfikować uprawnienia do każdego z obrazków.
 
