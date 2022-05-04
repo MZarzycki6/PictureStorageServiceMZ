@@ -43,7 +43,7 @@ String description - opis obrazka
 - zestaw narzędzi służących do obróbki obrazu do postaci 100x100 (thumbnail) wraz z testami dla tych narzędzi
 - zintegrowano bazę PostgreSQL z projektem
 - dodano system kolejek RabbitMQ dla zapisywania nowego obrazka i usuwania obrazka
-- dodano cache Hazelcast i przetestowano poprzez pomiar czasów odpowiedzi dla dwukrotnie powtórzonego tego samego zapytania
+- dodano cache Hazelcast dla zapytania pobrania konkretnego obrazka po id i przetestowano poprzez pomiar czasów odpowiedzi dla dwukrotnie powtórzonego tego samego zapytania
 
 ## TODO: 
 - Metoda i endpoint REST do modyfikacji wybranego obrazka z wykorzystaniem zaptania UPDATE w DB - tutaj nie sądzę aby były jakieś problemy
@@ -51,7 +51,7 @@ String description - opis obrazka
 - Metoda i endpoint REST do generowania czasowych linków dostępu do danych dla nieautoryzowanych użytkowników - do zrobienia po zaimplementowaniu autoryzacji - nalezałoby wówczas dodać do obiektu obrazka pole, które przechowywałoby dane nt. jego właściciela
 - Podział aplikacji na formę architektury mikroserwisowej
 - Uzupełnienie testów
-- Uzupełenienie wykorzystania systemu kolejek dla wszystkich zapytań
+- Uzupełenienie wykorzystania systemu kolejek i cache dla wszystkich zapytań
 - Zespolenie wszystkich plików yml i .properties w jeden
 - Mozna by na koniec wystawic demonstracyjnie aplikację na platformie np. Heroku
 
